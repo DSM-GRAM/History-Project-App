@@ -1,5 +1,6 @@
 package com.gram.dim
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,7 +13,7 @@ class OorXTestActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_o_x)
 
-        setSupportActionBar(toolbar_test)
+        setSupportActionBar(toolbar_oxtest)
         arrow_back.setOnClickListener { v ->
             finish()
         }

@@ -10,7 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar_test"
+        android:id="@+id/toolbar_oxtest"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorGray"
         android:minHeight="?attr/actionBarSize">
