@@ -13,12 +13,10 @@ import android.widget.LinearLayout
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_drag_test.*
 import android.content.ClipDescription
-
-
-
-
-
-
+import android.view.MotionEvent
+import android.view.MotionEvent.ACTION_DOWN
+import android.view.View.VISIBLE
+import android.widget.TextView
 
 
 class DragTestActivity: AppCompatActivity(){
@@ -29,25 +27,29 @@ class DragTestActivity: AppCompatActivity(){
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)
 
-        first_word.setOnLongClickListener(OnLongClickListener())
-        second_word.setOnLongClickListener(OnLongClickListener())
-        third_word.setOnLongClickListener(OnLongClickListener())
-        fourth_word.setOnLongClickListener(OnLongClickListener())
-        fifth_word.setOnLongClickListener(OnLongClickListener())
-        sixth_word.setOnLongClickListener(OnLongClickListener())
-        
+        first_space.setOnDragListener(DragListener())
+        second_space.setOnDragListener(DragListener())
+        third_space.setOnDragListener(DragListener())
+
+        arrow_back.setOnClickListener { v ->
+            finish()
+        }
     }
 
-    inner class OnLongClickListener: View.OnLongClickListener{
-        @TargetApi(Build.VERSION_CODES.N)
-        override fun onLongClick(v: View): Boolean {
-            val item = ClipData.Item(v.getTag() as CharSequence)
-            val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
-            val data = ClipData(v.getTag().toString(), mimeTypes, item)
-            val shadowBuilder = View.DragShadowBuilder(v)
-            v.startDragAndDrop(data, shadowBuilder, v, 0)
-            v.setVisibility(View.INVISIBLE)
-            return true
+    fun WordDrag(v: View){
+        v.setOnTouchListener(OnTouchListener())
+    }
+
+    inner class OnTouchListener: View.OnTouchListener{
+        override fun onTouch(v: View, event: MotionEvent): Boolean {
+            if (event.action == ACTION_DOWN){
+                val data = ClipData.newPlainText("dragtext", "dragtext")
+                val shadowBuilder = View.DragShadowBuilder(v)
+                v.startDrag(data, shadowBuilder, v, 0)
+                v.setVisibility(View.INVISIBLE)
+                return true
+            }
+            return false
         }
     }
 
@@ -62,35 +64,17 @@ class DragTestActivity: AppCompatActivity(){
                 DragEvent.ACTION_DRAG_EXITED  ->
                     Log.d("DragClickListener", "ACTION_DRAG_EXITED")
                 DragEvent.ACTION_DROP -> {
-                    if (v == first_space) {
-                        val view = event.localState as View
-                        val viewgroup = view.parent as ViewGroup
-                        viewgroup.removeView(view)
+                    if (v == first_space || v == second_space || v == third_space) {
+                        val view: View = event.localState as View
+                        view.visibility = View.INVISIBLE
 
-                        val containView = v as LinearLayout
-                        containView.addView(view)
+                        val dragedView = view as TextView
+                        val containView = v as TextView
+                        containView.setText(dragedView.text)
                         view.visibility = View.VISIBLE
 
-                    } else if (v == second_space) {
-                        val view = event.localState as View
-                        val viewgroup = view.parent as ViewGroup
-                        viewgroup.removeView(view)
-
-                        val containView = v as LinearLayout
-                        containView.addView(view)
-                        view.visibility = View.VISIBLE
-
-                    } else  if(v ==  third_space) {
-                        val view = event.localState as View
-                        val viewgroup = view.parent as ViewGroup
-                        viewgroup.removeView(view)
-
-                        val containView = v as LinearLayout
-                        containView.addView(view)
-                        view.visibility = View.VISIBLE
-                    }
-                    else {
-                        val view = event.localState as View
+                    } else if(v == word_layout) {
+                        val view: View = event.localState as View
                         view.visibility = View.VISIBLE
                     }
                 }
