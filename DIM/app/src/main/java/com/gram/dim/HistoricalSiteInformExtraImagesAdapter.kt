@@ -27,7 +27,6 @@ class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: Ar
         val locationText = itemView?.findViewById<TextView>(R.id.text_historical_site_inform_extra_images_location)
 
         fun bind (items: HistoricalSiteInformExtraImagesItem, context: Context) {
-
             nameText?.text = items.name
             locationText?.text = items.location
         }
