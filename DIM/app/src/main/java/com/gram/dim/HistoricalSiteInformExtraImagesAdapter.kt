@@ -31,5 +31,7 @@ class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: Ar
             nameText?.text = items.name
             locationText?.text = items.location
         }
+
+
     }
 }

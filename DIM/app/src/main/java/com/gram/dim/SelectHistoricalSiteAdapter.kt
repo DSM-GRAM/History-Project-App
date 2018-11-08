@@ -1,7 +1,9 @@
 package com.gram.dim
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +29,7 @@ class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<Sel
         val nameText = itemView?.findViewById<TextView>(R.id.text_select_historical_site_name)
         val locationText = itemView?.findViewById<TextView>(R.id.text_select_historical_site_location)
 
-        fun bind (items: SelectHistoricalSiteItem, context: Context) {
+        fun bind(items: SelectHistoricalSiteItem, context: Context) {
 
             nameText?.text = items.historicalSiteName
             locationText?.text = items.historicalSiteLocation
