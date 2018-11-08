@@ -1,21 +1,15 @@
 package com.gram.dim
 
-import android.annotation.TargetApi
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.content.ClipData
-import android.os.Build
 import android.util.Log
 import android.view.DragEvent
 import android.view.View.OnDragListener
-import android.widget.LinearLayout
-import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_drag_test.*
-import android.content.ClipDescription
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_DOWN
-import android.view.View.VISIBLE
 import android.widget.TextView
 
 
@@ -30,6 +24,7 @@ class DragTestActivity: AppCompatActivity(){
         first_space.setOnDragListener(DragListener())
         second_space.setOnDragListener(DragListener())
         third_space.setOnDragListener(DragListener())
+        layout.setOnDragListener(DragListener())
 
         arrow_back.setOnClickListener { v ->
             finish()
@@ -73,7 +68,10 @@ class DragTestActivity: AppCompatActivity(){
                         containView.setText(dragedView.text)
                         view.visibility = View.VISIBLE
 
-                    } else if(v == word_layout) {
+                    } else if(v == layout) {
+                        val view: View = event.localState as View
+                        view.visibility = View.VISIBLE
+                    } else {
                         val view: View = event.localState as View
                         view.visibility = View.VISIBLE
                     }
