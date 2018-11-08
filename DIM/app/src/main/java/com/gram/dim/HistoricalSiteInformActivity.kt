@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_historical_site_inform.*
-import kotlinx.android.synthetic.main.activity_select_historical_site.*
 
 class HistoricalSiteInformActivity : AppCompatActivity() {
 

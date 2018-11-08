@@ -15,6 +15,10 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/image_select_historical_site"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/text_select_historical_site_name"
