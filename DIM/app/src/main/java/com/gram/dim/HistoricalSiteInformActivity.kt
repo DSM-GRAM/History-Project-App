@@ -25,5 +25,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
         val lm = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         recycler_historical_site_inform_extra_images.layoutManager = lm
         recycler_historical_site_inform_extra_images.setHasFixedSize(true)
+
+        btn_historical_site_inform_toolbar_back.setOnClickListener { finish() }
     }
 }
