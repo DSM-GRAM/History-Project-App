@@ -1,8 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/info_of_place_back_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#54000000" />
+
+    <TextView
+        android:id="@+id/info_of_place_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="위치알아보기"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/info_of_place_panorama_btn"
+        android:layout_width="328dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/back_btn_expand_round_shape_placeinfo"
+        android:text="360' VR Image"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/info_of_place_panorama_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_of_place_title" />
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/info_of_place_panorama_img"
+        android:layout_width="328dp"
+        android:layout_height="328dp"
+        app:el_duration="300"
+        app:el_expanded="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_of_place_panorama_btn">
+
+        <com.google.vr.sdk.widgets.pano.VrPanoramaView
+            android:id="@+id/info_of_place_panorama_img_expand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/example" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <Button
+        android:id="@+id/info_of_place_map_btn"
+        android:layout_width="328dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back_btn_not_expand_round_shape_placeinfo"
+        android:text="Google Map"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_of_place_panorama_img" />
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/info_of_place_map_map"
+        android:layout_width="328dp"
+        android:layout_height="328dp"
+        android:background="@drawable/back_expandview_round_shape_placeinfo"
+        app:el_duration="300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_of_place_map_btn">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_expandview_round_shape_placeinfo" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/info_of_place_home_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_home_white_placeinfo"
+        app:fabCustomSize="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/info_of_place_go_test_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/ic_pencil_black_placeinfo"
+        app:fabCustomSize="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/info_of_place_home_fab" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/info_of_place_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/ic_arrow_left_black_placeinfo"
+        app:fabCustomSize="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/info_of_place_home_fab"
+        app:maxImageSize="30sp" />
 
 
 </android.support.constraint.ConstraintLayout>
