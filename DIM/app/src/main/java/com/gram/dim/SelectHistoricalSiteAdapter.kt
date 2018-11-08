@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class SelectHistoricalSiteAdapter(val context: Context, val dogList: ArrayList<SelectHistoricalSiteItem>) :
+class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<SelectHistoricalSiteItem>) :
         RecyclerView.Adapter<SelectHistoricalSiteAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): Holder {
@@ -16,11 +16,11 @@ class SelectHistoricalSiteAdapter(val context: Context, val dogList: ArrayList<S
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(dogList[position], context)
+        holder.bind(items[position], context)
     }
 
     override fun getItemCount(): Int {
-        return dogList.size
+        return items.size
     }
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
