@@ -10,13 +10,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        enterOX.setOnClickListener {
-            var intent = Intent(this, OorXTestActivity::class.java)
-            startActivity(intent)
+
+        vladivostok.setOnClickListener {
+            var intent = Intent(this, OXTestActivity::class.java)
+            intent.putExtra("choose", "vladivostok")
         }
-        enterDrag.setOnClickListener {
-            var intent = Intent(this, DragTestActivity::class.java)
-            startActivity(intent)
+
+        usulisk.setOnClickListener {
+            var intent = Intent(this, OXTestActivity::class.java)
+            intent.putExtra("choose", "usulisk")
         }
     }
 }

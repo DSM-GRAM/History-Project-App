@@ -8,7 +8,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_o_x.*
 
 
-class OorXTestActivity : AppCompatActivity(){
+class OXTestActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_o_x)

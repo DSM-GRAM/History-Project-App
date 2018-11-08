@@ -147,9 +147,10 @@
         android:layout_height="wrap_content"
         android:background="@color/colorkhaki">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/first_space"
@@ -157,10 +158,6 @@
                 android:layout_height="35dp"
                 android:layout_marginHorizontal="10dp"
                 android:background="@drawable/round_white_button"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/second_space"
                 android:gravity="center"
                 android:text="(1)"/>
 
@@ -170,10 +167,6 @@
                     android:layout_height="35dp"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/round_white_button"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@id/first_space"
-                    app:layout_constraintEnd_toStartOf="@id/third_space"
                     android:gravity="center"
                     android:text="(2)"/>
 
@@ -183,12 +176,8 @@
                     android:layout_height="35dp"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/round_white_button"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@id/second_space"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:gravity="center"
                     android:text="(3)"/>
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </android.support.v7.widget.Toolbar>
 </LinearLayout>

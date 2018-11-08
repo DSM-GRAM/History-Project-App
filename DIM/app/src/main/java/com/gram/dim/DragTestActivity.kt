@@ -14,9 +14,12 @@ import android.widget.TextView
 
 
 class DragTestActivity: AppCompatActivity(){
+    lateinit var testModel: TestModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_test)
+
+        testModel = TestModel
 
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)
@@ -29,11 +32,15 @@ class DragTestActivity: AppCompatActivity(){
         arrow_back.setOnClickListener { v ->
             finish()
         }
+
+
     }
 
     fun WordDrag(v: View){
         v.setOnTouchListener(OnTouchListener())
     }
+
+
 
     inner class OnTouchListener: View.OnTouchListener{
         override fun onTouch(v: View, event: MotionEvent): Boolean {
