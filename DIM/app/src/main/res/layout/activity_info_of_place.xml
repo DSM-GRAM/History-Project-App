@@ -2,7 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InfoOfPlaceActivity">
 
     <ImageView
         android:id="@+id/info_of_place_back_img"
@@ -52,6 +54,7 @@
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/info_of_place_panorama_img_expand"
+            android:background="@drawable/back_expandview_round_shape_placeinfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/example" />
@@ -80,10 +83,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_of_place_map_btn">
 
-        <View
+        <fragment
+            android:id="@+id/info_of_place_map_map_expand"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/back_expandview_round_shape_placeinfo" />
+            class="com.google.android.gms.maps.SupportMapFragment"/>
 
     </net.cachapa.expandablelayout.ExpandableLayout>
 

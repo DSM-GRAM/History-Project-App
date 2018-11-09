@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gram.dim">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCQ6Yy-5CXOcO0gW9lGsCLB8OjOiutdUmM"/>
+
         <activity android:name=".MainActivity"/>
         <activity android:name=".InfoOfPlaceActivity">
             <intent-filter>
@@ -18,9 +28,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".SampleActivity">
-
         </activity>
     </application>
 
