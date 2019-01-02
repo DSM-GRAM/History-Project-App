@@ -21,14 +21,18 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCQ6Yy-5CXOcO0gW9lGsCLB8OjOiutdUmM"/>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".InfoOfPlaceActivity">
+        <activity android:name=".InfoOfPlaceActivity"/>
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".SelectHistoricalSiteActivity"/>
+
     </application>
 
 </manifest>
