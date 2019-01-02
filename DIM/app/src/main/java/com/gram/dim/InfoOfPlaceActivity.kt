@@ -11,9 +11,11 @@ import kotlinx.android.synthetic.main.activity_info_of_place.*
 
 class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyCallback {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_of_place)
+
         info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources,R.drawable.panorama_example),null)
         (supportFragmentManager.findFragmentById(R.id.info_of_place_map_map_expand) as SupportMapFragment).getMapAsync(this)
         info_of_place_panorama_btn.setOnClickListener(this)
