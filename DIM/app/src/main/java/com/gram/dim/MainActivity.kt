@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("choose", "vladivostok")
         }
 
-        usulisk.setOnClickListener {
+        ussuriysk.setOnClickListener {
             var intent = Intent(this, OXTestActivity::class.java)
             intent.putExtra("choose", "usulisk")
         }
