@@ -13,6 +13,17 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_historical_site)
 
+        var intent = intent
+        val locationName: String = intent.getStringExtra("choose")
+
+        text_select_historical_site_toolbar_name.text = when (locationName) {
+            "vladivostok" -> "블라디보스톡"
+            "usulisk" -> "우수리스크"
+            else -> "error"
+        }
+
+        btn_select_historical_site_toolbar_back.setOnClickListener { finish() }
+
         val selectHistoricalSiteItems = arrayListOf<SelectHistoricalSiteItem>(
                 SelectHistoricalSiteItem("name", "location", "asdf")
         )
@@ -27,7 +38,7 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
 
         recycler_select_historical_site.addOnItemTouchListener(RecyclerItemClickListener(applicationContext, recycler_select_historical_site, object : RecyclerItemClickListener.OnItemClickListener {
             override fun onItemClick(view: View, position: Int) {
-                val intent: Intent = Intent(applicationContext,HistoricalSiteInformActivity::class.java)
+                intent = Intent(applicationContext, HistoricalSiteInformActivity::class.java)
                 startActivity(intent)
             }
 
