@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:layout_gravity="center">
+    <ImageView
+        android:id="@+id/image_dialog_historical_site_inform_show_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:contentDescription="이미지" />
+    <ImageButton
+        android:id="@+id/btn_dialog_historical_site_inform_show_image_cancel"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_clear_white_36dp"
+        android:layout_margin="10dp"
+        android:contentDescription="닫기" />
+
+</android.support.constraint.ConstraintLayout>
