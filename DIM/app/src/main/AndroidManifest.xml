@@ -34,6 +34,7 @@
         <activity android:name=".SelectHistoricalSiteActivity"/>
         <activity android:name=".OXTestActivity" />
         <activity android:name=".DragTestActivity" />
+        <activity android:name=".HistoricalSiteInformActivity"/>
     </application>
 
 </manifest>
