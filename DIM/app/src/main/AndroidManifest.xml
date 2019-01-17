@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true">
         
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
@@ -34,6 +35,7 @@
         <activity android:name=".SelectHistoricalSiteActivity"/>
         <activity android:name=".OXTestActivity" />
         <activity android:name=".DragTestActivity" />
+        <activity android:name=".HistoricalSiteInformActivity"/>
     </application>
 
 </manifest>

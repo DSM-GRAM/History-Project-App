@@ -12,13 +12,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         vladivostok.setOnClickListener {
-            var intent = Intent(this, OXTestActivity::class.java)
+            var intent = Intent(this, SelectHistoricalSiteActivity::class.java)
             intent.putExtra("choose", "vladivostok")
+            startActivity(intent)
         }
 
-        usulisk.setOnClickListener {
-            var intent = Intent(this, OXTestActivity::class.java)
+        ussuriysk.setOnClickListener {
+            var intent = Intent(this, SelectHistoricalSiteActivity::class.java)
             intent.putExtra("choose", "usulisk")
+            startActivity(intent)
         }
     }
 }

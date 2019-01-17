@@ -31,30 +31,63 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@mipmap/image_main"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="vertical">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="80"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"/>
+                <Button
+                    android:id="@+id/vladivostok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:background="@drawable/round_white_button"
+                    android:text="블라디보스톡"
+                    android:textColor="@color/colorblack"
+                    android:textSize="10dp" />
+            </LinearLayout>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/vladivostok"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:background="@drawable/round_white_button"
-            android:text="블라디보스톡"
-            android:textColor="@color/colorblack"
-            android:textSize="10dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="89dp"
-            tools:layout_editor_absoluteY="408dp" />
-
-        <Button
-            android:id="@+id/usulisk"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:background="@drawable/round_white_button"
-            android:text="우수리스크"
-            android:textColor="@color/colorblack"
-            android:textSize="10dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="352dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="vertical">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"/>
+                <Button
+                    android:id="@+id/ussuriysk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:background="@drawable/round_white_button"
+                    android:text="우수리스크"
+                    android:textColor="@color/colorblack"
+                    android:textSize="10dp" />
+            </LinearLayout>
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
