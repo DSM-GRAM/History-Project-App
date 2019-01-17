@@ -4,8 +4,14 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import com.gram.dim.Model.SelectHistoricalSiteModel
 import kotlinx.android.synthetic.main.activity_select_historical_site.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SelectHistoricalSiteActivity : AppCompatActivity() {
 
@@ -15,6 +21,7 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
 
         var intent = intent
         val locationName: String = intent.getStringExtra("choose")
+        var selectHistoricalSiteItems: ArrayList<SelectHistoricalSiteItem> = ArrayList()
 
         text_select_historical_site_toolbar_name.text = when (locationName) {
             "vladivostok" -> "블라디보스톡"
@@ -23,11 +30,6 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         }
 
         btn_select_historical_site_toolbar_back.setOnClickListener { finish() }
-
-        val selectHistoricalSiteItems = arrayListOf<SelectHistoricalSiteItem>(
-                SelectHistoricalSiteItem("name", "location", "asdf")
-        )
-
 
         val selectHistoricalSiteAdapter = SelectHistoricalSiteAdapter(this, selectHistoricalSiteItems)
         recycler_select_historical_site.adapter = selectHistoricalSiteAdapter
@@ -45,6 +47,27 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
             override fun onLongItemClick(view: View?, position: Int) {
             }
         }))
+
+        //서버 연동
+        ApiClient.api.getSites(when (locationName) {"vladivostok" -> "bla" "usulisk" -> "usu" else -> "error"}).enqueue(object : Callback<ArrayList<SelectHistoricalSiteModel>> {
+
+            override fun onResponse(call: Call<ArrayList<SelectHistoricalSiteModel>>, response: Response<ArrayList<SelectHistoricalSiteModel>>) {
+                if (response.code() == 200) {
+                    for (i in response.body()!!.indices) {
+                        selectHistoricalSiteItems.add(SelectHistoricalSiteItem(response.body()!![i].name, response.body()!![i].location, response.body()!![i].imagePath))
+                    }
+                    selectHistoricalSiteAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d("Debug","ㅠ")
+                    Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<SelectHistoricalSiteModel>>, t: Throwable) {
+                Log.d("Debug","ㅜㅜㅜㅜㅜ")
+                Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
+            }
+        })
 
     }
 }
