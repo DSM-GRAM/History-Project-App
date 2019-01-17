@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Util
 
 object TestModel{
     var testType: String = ""

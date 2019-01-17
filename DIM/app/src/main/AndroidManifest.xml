@@ -22,9 +22,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCQ6Yy-5CXOcO0gW9lGsCLB8OjOiutdUmM"/>
 
-        <activity android:name=".InfoOfPlaceActivity"/>
+        <activity android:name=".Ui.InfoOfPlaceActivity"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,10 +32,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SelectHistoricalSiteActivity"/>
-        <activity android:name=".OXTestActivity" />
-        <activity android:name=".DragTestActivity" />
-        <activity android:name=".HistoricalSiteInformActivity"/>
+        <activity android:name=".Ui.SelectHistoricalSiteActivity"/>
+        <activity android:name=".Ui.OXTestActivity" />
+        <activity android:name=".Ui.DragTestActivity" />
+        <activity android:name=".Ui.HistoricalSiteInformActivity"/>
     </application>
 
 </manifest>

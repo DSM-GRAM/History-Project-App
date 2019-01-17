@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Ui
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.gram.dim.R
 import kotlinx.android.synthetic.main.activity_info_of_place.*
 
 class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyCallback {
@@ -16,7 +17,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_of_place)
 
-        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources,R.drawable.panorama_example),null)
+        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
         (supportFragmentManager.findFragmentById(R.id.info_of_place_map_map_expand) as SupportMapFragment).getMapAsync(this)
         info_of_place_panorama_btn.setOnClickListener(this)
         info_of_place_map_btn.setOnClickListener(this)

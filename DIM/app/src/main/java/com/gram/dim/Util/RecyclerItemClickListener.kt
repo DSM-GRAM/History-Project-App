@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Util
 
 import android.content.Context
 import android.view.MotionEvent

@@ -1,10 +1,14 @@
-package com.gram.dim
+package com.gram.dim.Ui
 
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.gram.dim.Adapter.HistoricalSiteInformExtraImagesAdapter
+import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
+import com.gram.dim.R
+import com.gram.dim.Util.HistoricalSiteInformShowImageDialog
+import com.gram.dim.Util.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.activity_historical_site_inform.*
 
 class HistoricalSiteInformActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_drag_test.*
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_DOWN
 import android.widget.TextView
+import com.gram.dim.R
+import com.gram.dim.Util.TestModel
 
 
 class DragTestActivity: AppCompatActivity(){
