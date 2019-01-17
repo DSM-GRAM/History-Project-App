@@ -42,7 +42,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
         }))
 
-        btn_historical_site_inform_toolbar_back.setOnClickListener { historicalSiteInformDialog.dismiss() }
+        btn_historical_site_inform_toolbar_back.setOnClickListener { finish() }
 
     }
 }
