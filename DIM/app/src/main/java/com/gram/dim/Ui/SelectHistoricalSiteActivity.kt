@@ -27,6 +27,8 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         var intent = intent
         val locationName: String = intent.getStringExtra("choose")
         var selectHistoricalSiteItems: ArrayList<SelectHistoricalSiteItem> = ArrayList()
+        //todo delete
+        selectHistoricalSiteItems.add(SelectHistoricalSiteItem("","",""))
 
         text_select_historical_site_toolbar_name.text = when (locationName) {
             "vladivostok" -> "블라디보스톡"
@@ -46,6 +48,9 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         recycler_select_historical_site.addOnItemTouchListener(RecyclerItemClickListener(applicationContext, recycler_select_historical_site, object : RecyclerItemClickListener.OnItemClickListener {
             override fun onItemClick(view: View, position: Int) {
                 intent = Intent(applicationContext, HistoricalSiteInformActivity::class.java)
+                //todo 서버에서 받아서 넣어주기 location은 bla | usu
+                intent.putExtra("location","")
+                intent.putExtra("siteName","")
                 startActivity(intent)
             }
 
