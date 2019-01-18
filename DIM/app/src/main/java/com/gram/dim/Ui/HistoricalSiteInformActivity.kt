@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.gram.dim.Model.HistoricalSiteInformModel
 import com.gram.dim.Model.SelectHistoricalSiteModel
 import com.gram.dim.Adapter.HistoricalSiteInformExtraImagesAdapter
+import com.gram.dim.Connector.ApiClient
 import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
 import com.gram.dim.R
 import com.gram.dim.Util.HistoricalSiteInformShowImageDialog
