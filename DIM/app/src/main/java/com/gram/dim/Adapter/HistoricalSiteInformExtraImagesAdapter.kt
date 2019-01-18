@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
+import com.gram.dim.R
 
 class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: ArrayList<HistoricalSiteInformExtraImagesItem>):RecyclerView.Adapter<HistoricalSiteInformExtraImagesAdapter.Holder>() {
 

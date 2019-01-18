@@ -1,13 +1,12 @@
-package com.gram.dim
+package com.gram.dim.Util
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageButton
 import com.bumptech.glide.Glide
+import com.gram.dim.R
 import kotlinx.android.synthetic.main.dialog_historical_site_inform_show_image.*
 
 class HistoricalSiteInformShowImageDialog(context: Context, var cancelClickLister: View.OnClickListener, var imagePath: String) : Dialog(context) {

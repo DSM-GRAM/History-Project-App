@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Connector
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

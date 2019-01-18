@@ -1,4 +1,4 @@
-package com.gram.dim
+package com.gram.dim.Ui
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,11 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.gram.dim.Model.HistoricalSiteInformModel
 import com.gram.dim.Model.SelectHistoricalSiteModel
+import com.gram.dim.Adapter.HistoricalSiteInformExtraImagesAdapter
+import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
+import com.gram.dim.R
+import com.gram.dim.Util.HistoricalSiteInformShowImageDialog
+import com.gram.dim.Util.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.activity_historical_site_inform.*
 import retrofit2.Call
 import retrofit2.Callback
