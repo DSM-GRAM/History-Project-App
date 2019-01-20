@@ -1,5 +1,6 @@
-package com.gram.dim
+package com.gram.dim.Connector
 
+import com.gram.dim.Model.InfoOfPlaceModel
 import com.gram.dim.Model.SelectHistoricalSiteModel
 import retrofit2.Call
 import retrofit2.http.GET
@@ -10,5 +11,9 @@ interface Api {
     @GET("main/{area}")
     @Headers("Content-Type: application/json")
     fun getSites(@Path("area") area: String): Call<ArrayList<SelectHistoricalSiteModel>>
+
+
+    @GET("map/{area}")
+    fun getMapsLocation(@Path("area") area : String): Call<InfoOfPlaceModel>
 
 }
