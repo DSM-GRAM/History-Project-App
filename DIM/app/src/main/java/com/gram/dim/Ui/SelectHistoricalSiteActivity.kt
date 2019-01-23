@@ -27,8 +27,6 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         var intent = intent
         val locationName: String = intent.getStringExtra("choose")
         var selectHistoricalSiteItems: ArrayList<SelectHistoricalSiteItem> = ArrayList()
-        //todo delete
-        selectHistoricalSiteItems.add(SelectHistoricalSiteItem("","",""))
 
         text_select_historical_site_toolbar_name.text = when (locationName) {
             "vladivostok" -> "블라디보스톡"

@@ -1,6 +1,6 @@
 package com.gram.dim.Connector
 
-import com.gram.dim.Api
+import com.gram.dim.Connector.Api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

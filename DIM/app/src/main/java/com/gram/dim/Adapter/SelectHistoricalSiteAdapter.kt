@@ -42,7 +42,7 @@ class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<Sel
             locationText?.text = items.historicalSiteLocation
             if (image != null) {
                 Glide.with(itemView).load(items.historicalSiteImagePath)
-                        .apply(bitmapTransform(BlurTransformation(25, 3)))
+                        .apply(bitmapTransform(BlurTransformation(25, 1)))
                         .into(image)
             }
         }
