@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.gram.dim.Model.HistoricalSiteInformModel
 import com.gram.dim.Model.SelectHistoricalSiteModel
 import com.gram.dim.Adapter.HistoricalSiteInformExtraImagesAdapter
@@ -17,10 +18,22 @@ import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
 import com.gram.dim.R
 import com.gram.dim.Util.HistoricalSiteInformShowImageDialog
 import com.gram.dim.Util.RecyclerItemClickListener
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_historical_site_inform.*
+import kotlinx.android.synthetic.main.item_historical_site_inform_extra_images.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+import java.io.BufferedInputStream
+import java.net.URL
+import android.R.attr.bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+
+
+
 
 class HistoricalSiteInformActivity : AppCompatActivity() {
 
@@ -28,7 +41,6 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historical_site_inform)
 
-        var intent: Intent = intent
         var location: String = intent.getStringExtra("location")
         var siteCode: String = intent.getStringExtra("siteCode")
         var siteName: String = intent.getStringExtra("siteName")
@@ -65,12 +77,13 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
         btn_historical_site_inform_next.rotationY = 180f
 
         btn_historical_site_inform_home.setOnClickListener {
-            intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
         btn_historical_site_inform_next.setOnClickListener {
-            //todo intent에 location, siteCode 넣어서 주기
-            intent = Intent(this,InfoOfPlaceActivity::class.java)
+            val intent = Intent(this,InfoOfPlaceActivity::class.java)
+            intent.putExtra("location",location)
+            intent.putExtra("siteCode",siteCode)
             startActivity(intent)
         }
 
@@ -104,8 +117,5 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
             }
         })
-
-
-
     }
 }
