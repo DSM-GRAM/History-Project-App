@@ -30,16 +30,16 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
         var intent: Intent = intent
         var location: String = intent.getStringExtra("location")
+        var siteCode: String = intent.getStringExtra("siteCode")
         var siteName: String = intent.getStringExtra("siteName")
+
+        text_historical_site_inform_toolbar_toolbar_name.text = siteName
+        text_historical_site_inform_name.text = siteName
 
         lateinit var historicalSiteInformDialog: HistoricalSiteInformShowImageDialog
         val changePwCancelClickListener = View.OnClickListener { historicalSiteInformDialog.dismiss() }
 
-        val extraImagesItems = arrayListOf<HistoricalSiteInformExtraImagesItem>(
-                HistoricalSiteInformExtraImagesItem("asd", "asdf", "adsf"),
-                HistoricalSiteInformExtraImagesItem("asd", "asdf", "adsf"),
-                HistoricalSiteInformExtraImagesItem("asd", "asdf", "adsf")
-        )
+        val extraImagesItems = arrayListOf<HistoricalSiteInformExtraImagesItem>()
 
 
         val historicalSiteInformExtraImagesAdapter = HistoricalSiteInformExtraImagesAdapter(this, extraImagesItems)
@@ -77,7 +77,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
         btn_historical_site_inform_toolbar_back.setOnClickListener { finish() }
 
-        ApiClient.api.getSiteInform(location, siteName).enqueue(object : Callback<HistoricalSiteInformModel> {
+        ApiClient.api.getSiteInform(location, siteCode).enqueue(object : Callback<HistoricalSiteInformModel> {
 
             override fun onResponse(call: Call<HistoricalSiteInformModel>, response: Response<HistoricalSiteInformModel>) {
                 if (response.code() == 200) {

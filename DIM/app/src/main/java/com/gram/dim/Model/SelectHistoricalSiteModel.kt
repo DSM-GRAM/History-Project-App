@@ -13,4 +13,7 @@ class SelectHistoricalSiteModel {
     @SerializedName("historicalSiteName")
     var name: String = ""
 
+    @SerializedName("historicalSiteCode")
+    var siteCode: String = ""
+
 }

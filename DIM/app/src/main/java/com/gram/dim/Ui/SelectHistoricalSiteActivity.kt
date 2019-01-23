@@ -46,9 +46,9 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
         recycler_select_historical_site.addOnItemTouchListener(RecyclerItemClickListener(applicationContext, recycler_select_historical_site, object : RecyclerItemClickListener.OnItemClickListener {
             override fun onItemClick(view: View, position: Int) {
                 intent = Intent(applicationContext, HistoricalSiteInformActivity::class.java)
-                //todo 서버에서 받아서 넣어주기 location은 bla | usu
-                intent.putExtra("location","")
-                intent.putExtra("siteName","")
+                intent.putExtra("location",when(locationName) {"vladivostok" -> "bla" "usulisk" -> "usu" else -> "error"})
+                intent.putExtra("siteCode",selectHistoricalSiteItems[position].historicalSiteCode)
+                intent.putExtra("siteName",selectHistoricalSiteItems[position].historicalSiteName)
                 startActivity(intent)
             }
 
@@ -62,7 +62,7 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
             override fun onResponse(call: Call<ArrayList<SelectHistoricalSiteModel>>, response: Response<ArrayList<SelectHistoricalSiteModel>>) {
                 if (response.code() == 200) {
                     for (i in response.body()!!.indices) {
-                        selectHistoricalSiteItems.add(SelectHistoricalSiteItem(response.body()!![i].name, response.body()!![i].location, response.body()!![i].imagePath))
+                        selectHistoricalSiteItems.add(SelectHistoricalSiteItem(response.body()!![i].name, response.body()!![i].location, response.body()!![i].imagePath, response.body()!![i].siteCode))
                     }
                     selectHistoricalSiteAdapter.notifyDataSetChanged()
                 } else {
