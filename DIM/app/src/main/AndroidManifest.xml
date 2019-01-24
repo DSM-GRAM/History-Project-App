@@ -9,8 +9,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="독립운동 알아보기"
+        android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
@@ -24,18 +24,19 @@
 
         <activity android:name=".Ui.InfoOfPlaceActivity"/>
 
-        <activity android:name=".Ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Ui.MainActivity"></activity>
 
         <activity android:name=".Ui.SelectHistoricalSiteActivity"/>
         <activity android:name=".Ui.OXTestActivity" />
         <activity android:name=".Ui.DragTestActivity" />
         <activity android:name=".Ui.HistoricalSiteInformActivity"/>
+        <activity android:name=".Ui.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
