@@ -154,6 +154,16 @@
                 app:layout_constraintTop_toBottomOf="@id/recycler_historical_site_inform_extra_images"
                 app:layout_constraintWidth_percent="0.92">
 
+                <ImageView
+                    android:id="@+id/image_historical_site_inform_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#70000000"/>
+
                 <TextView
                     android:id="@+id/text_historical_site_inform_extra_text"
                     android:layout_width="match_parent"

@@ -1,7 +1,7 @@
 package com.gram.dim.Ui
 
-import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.gram.dim.Model.HistoricalSiteInformModel
-import com.gram.dim.Model.SelectHistoricalSiteModel
 import com.gram.dim.Adapter.HistoricalSiteInformExtraImagesAdapter
 import com.gram.dim.Connector.ApiClient
 import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
@@ -19,21 +18,11 @@ import com.gram.dim.R
 import com.gram.dim.Util.HistoricalSiteInformShowImageDialog
 import com.gram.dim.Util.RecyclerItemClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import kotlinx.android.synthetic.main.activity_historical_site_inform.*
-import kotlinx.android.synthetic.main.item_historical_site_inform_extra_images.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-import java.io.BufferedInputStream
-import java.net.URL
-import android.R.attr.bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-
-
-
 
 class HistoricalSiteInformActivity : AppCompatActivity() {
 
@@ -77,13 +66,13 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
         btn_historical_site_inform_next.rotationY = 180f
 
         btn_historical_site_inform_home.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         btn_historical_site_inform_next.setOnClickListener {
-            val intent = Intent(this,InfoOfPlaceActivity::class.java)
-            intent.putExtra("location",location)
-            intent.putExtra("siteCode",siteCode)
+            val intent = Intent(this, InfoOfPlaceActivity::class.java)
+            intent.putExtra("location", location)
+            intent.putExtra("siteCode", siteCode)
             startActivity(intent)
         }
 
@@ -96,26 +85,30 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     text_historical_site_inform_location.text = response.body()!!.location
                     text_historical_site_inform_main_text.text = response.body()!!.text
+                    image_historical_site_inform_card.maxHeight = text_historical_site_inform_extra_text.height
                     text_historical_site_inform_extra_text.text = response.body()!!.extraText
                     text_historical_site_inform_explain.text = response.body()!!.explain
                     Glide.with(this@HistoricalSiteInformActivity).load(response.body()!!.imagePath).into(image_historical_site_inform_toolbar)
-
-                    for(i in response.body()!!.extra.indices) {
-                        extraImagesItems.add(HistoricalSiteInformExtraImagesItem(response.body()!!.extra[i].extraImagePath,response.body()!!.extra[i].extraName,response.body()!!.extra[i].extraLocation))
+                    Glide.with(this@HistoricalSiteInformActivity).load(response.body()!!.imagePath).into(image_historical_site_inform_card)
+                    for (i in response.body()!!.extra.indices) {
+                        extraImagesItems.add(HistoricalSiteInformExtraImagesItem(response.body()!!.extra[i].extraImagePath, response.body()!!.extra[i].extraName, response.body()!!.extra[i].extraLocation))
                     }
 
                     historicalSiteInformExtraImagesAdapter.notifyDataSetChanged()
 
                 } else {
-                    Log.d("Debug","ㅠ")
+                    Log.d("Debug", "ㅠ")
                     Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<HistoricalSiteInformModel>, t: Throwable) {
-                Log.d("Debug","ㅜㅜㅜㅜㅜ")
+                Log.d("Debug", "ㅜㅜㅜㅜㅜ")
                 Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    fun resize() {
+
     }
 }
