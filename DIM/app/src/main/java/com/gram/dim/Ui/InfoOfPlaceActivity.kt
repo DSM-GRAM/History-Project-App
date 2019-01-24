@@ -20,8 +20,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 
 class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyCallback {
-    var lat = 0.0
-    var lng = 0.0
+    lateinit var map : GoogleMap
     var location = ""
     var siteCode = ""
     var siteName = ""
@@ -39,12 +38,11 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         siteCode = intent.getStringExtra("siteCode")
         siteName = intent.getStringExtra("siteName")
 
-
-        getSiteLocation(siteCode)
-
         // VR 이미지 좀 주세요 ㅠㅠㅠㅠ
 //        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
         (supportFragmentManager.findFragmentById(R.id.info_of_place_map_map_expand) as SupportMapFragment).getMapAsync(this)
+
+        getSiteLocation(siteCode)
 
         info_of_place_panorama_btn.setOnClickListener(this)
         info_of_place_map_btn.setOnClickListener(this)
@@ -64,8 +62,14 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                 .enqueue(object : Callback<InfoOfPlaceModel>{
                     override fun onResponse(call: Call<InfoOfPlaceModel>, response: Response<InfoOfPlaceModel>) {
                         if (response.code() == 200){
-                            lat = response.body()!!.lat
-                            lng = response.body()!!.lng
+                            val markerOptions = MarkerOptions()
+                                    .apply { position(LatLng(response.body()!!.lat,response.body()!!.lng))
+                                        title(siteName)
+                                        snippet(location)}
+
+                            map.addMarker(markerOptions).showInfoWindow()
+
+                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(response.body()!!.lat,response.body()!!.lng),16F))
                         } else{
                             Log.d("MAP","없는 유적지")
                         }
@@ -94,17 +98,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
 
     override fun onMapReady(Gmap: GoogleMap?) {
 
-        //왜인지 모르게 맛이 가버린 마커씨..
-        val markerOptions = MarkerOptions()
-                .apply { position(LatLng(lat,lng))
-                         title(siteName)
-                         snippet(location)}
-
-        Gmap!!.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lat,lng)))
-
-//        Gmap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(markerOptions.position.latitude,markerOptions.position.longitude),5F))
-
-        Gmap!!.addMarker(markerOptions).showInfoWindow()
+        map = Gmap!!
 
     }
 }
