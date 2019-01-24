@@ -73,6 +73,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
             val intent = Intent(this, InfoOfPlaceActivity::class.java)
             intent.putExtra("location", location)
             intent.putExtra("siteCode", siteCode)
+            intent.putExtra("siteName",siteName)
             startActivity(intent)
         }
 

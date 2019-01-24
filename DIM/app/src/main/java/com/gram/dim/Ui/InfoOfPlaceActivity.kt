@@ -1,27 +1,49 @@
 package com.gram.dim.Ui
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import android.widget.Toast
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.gram.dim.Connector.ApiClient
+import com.gram.dim.Model.InfoOfPlaceModel
 import com.gram.dim.R
 import kotlinx.android.synthetic.main.activity_info_of_place.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyCallback {
-
+    var lat = 0.0
+    var lng = 0.0
+    var location = ""
+    var siteCode = ""
+    var siteName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_of_place)
 
         val intent = intent
-        val area = intent.getStringExtra("location")
-        val historicalSite = intent.getStringExtra("siteCode")
+        location = when(intent.getStringExtra("location")){
+            "bla" -> "러시아, 블라디보스톡"
+            "usu" -> "러시아, 우수리스크"
+            else -> "null"
+        }
+        siteCode = intent.getStringExtra("siteCode")
+        siteName = intent.getStringExtra("siteName")
 
-        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
+
+        getSiteLocation(siteCode)
+
+        // VR 이미지 좀 주세요 ㅠㅠㅠㅠ
+//        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
         (supportFragmentManager.findFragmentById(R.id.info_of_place_map_map_expand) as SupportMapFragment).getMapAsync(this)
 
         info_of_place_panorama_btn.setOnClickListener(this)
@@ -29,6 +51,30 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
 
         info_of_place_back_btn.setOnClickListener { finish() }
 
+        info_of_place_home_fab.setOnClickListener {
+            val intent = Intent(this@InfoOfPlaceActivity,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+    }
+
+    fun getSiteLocation(siteCode: String) {
+        ApiClient.api.getMapLocation(siteCode)
+                .enqueue(object : Callback<InfoOfPlaceModel>{
+                    override fun onResponse(call: Call<InfoOfPlaceModel>, response: Response<InfoOfPlaceModel>) {
+                        if (response.code() == 200){
+                            lat = response.body()!!.lat
+                            lng = response.body()!!.lng
+                        } else{
+                            Log.d("MAP","없는 유적지")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<InfoOfPlaceModel>, t: Throwable) {
+                            Log.d("MAP","실패 ㅠㅠ")
+                    }
+                })
     }
 
 
@@ -46,7 +92,19 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         }
     }
 
-    override fun onMapReady(p0: GoogleMap?) {
+    override fun onMapReady(Gmap: GoogleMap?) {
+
+        //왜인지 모르게 맛이 가버린 마커씨..
+        val markerOptions = MarkerOptions()
+                .apply { position(LatLng(lat,lng))
+                         title(siteName)
+                         snippet(location)}
+
+        Gmap!!.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lat,lng)))
+
+//        Gmap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(markerOptions.position.latitude,markerOptions.position.longitude),5F))
+
+        Gmap!!.addMarker(markerOptions).showInfoWindow()
 
     }
 }

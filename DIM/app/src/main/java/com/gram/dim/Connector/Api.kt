@@ -13,9 +13,9 @@ interface Api {
     @Headers("Content-Type: application/json")
     fun getSites(@Path("area") area: String): Call<ArrayList<SelectHistoricalSiteModel>>
 
-
-    @GET("map/{area}")
-    fun getMapsLocation(@Path("area") area : String): Call<InfoOfPlaceModel>
+    @GET("map/{history_site_name}")
+    @Headers("Content-Type: application/json")
+    fun getMapLocation(@Path("history_site_name") histroySiteName : String): Call<InfoOfPlaceModel>
 
     @GET("main/{area}/{history_site_name}")
     @Headers("Content-Type: application/json")
