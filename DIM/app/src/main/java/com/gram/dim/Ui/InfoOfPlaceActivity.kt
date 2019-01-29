@@ -1,7 +1,6 @@
 package com.gram.dim.Ui
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -12,12 +11,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.gram.dim.Connector.ApiClient
 import com.gram.dim.Model.InfoOfPlaceModel
+import com.gram.dim.Model.TestModel
 import com.gram.dim.R
+import com.gram.dim.Util.QuizData
 import kotlinx.android.synthetic.main.activity_info_of_place.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyCallback {
     lateinit var map : GoogleMap
@@ -47,6 +47,8 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         info_of_place_panorama_btn.setOnClickListener(this)
         info_of_place_map_btn.setOnClickListener(this)
 
+        info_of_place_go_test_fab.setOnClickListener { getQuiz(location)}
+
         info_of_place_back_btn.setOnClickListener { finish() }
 
         info_of_place_home_fab.setOnClickListener {
@@ -55,6 +57,52 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
             finish()
         }
 
+    }
+
+    fun getQuiz(area: String) {
+        val quizData = QuizData
+
+        ApiClient.api.getQuiz(area)
+                .enqueue(object : Callback<TestModel>{
+                    override fun onResponse(call: Call<TestModel>, response: Response<TestModel>) {
+                        if(response.code() == 200) {
+                            if (response.body()!!.questionOX.isNotEmpty()){
+                                quizData.questionMultiple = response.body()!!.questionMultiple
+                                quizData.answerMultiple = response.body()!!.answerMultiple
+                                quizData.questionOX = response.body()!!.questionOX
+                                quizData.answerOX = response.body()!!.answerOX
+                                quizData.word1 = response.body()!!.word1
+                                quizData.word2 = response.body()!!.word2
+                                quizData.word3 = response.body()!!.word3
+                                quizData.word4 = response.body()!!.word4
+                                quizData.word5 = response.body()!!.word5
+                                quizData.word6 = response.body()!!.word6
+                                val intent = Intent(this@InfoOfPlaceActivity, OXTestActivity::class.java)
+                                startActivity(intent)
+                            } else {
+                                if (response.body()!!.questionMultiple.isNotEmpty()){
+                                    quizData.questionMultiple = response.body()!!.questionMultiple
+                                    quizData.answerMultiple = response.body()!!.answerMultiple
+                                    quizData.answerOfnumber = response.body()!!.answerOfnumber
+                                    quizData.word1 = response.body()!!.word1
+                                    quizData.word2 = response.body()!!.word2
+                                    quizData.word3 = response.body()!!.word3
+                                    quizData.word4 = response.body()!!.word4
+                                    quizData.word5 = response.body()!!.word5
+                                    quizData.word6 = response.body()!!.word6
+                                    val intent = Intent(this@InfoOfPlaceActivity, DragTestActivity::class.java)
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText( this@InfoOfPlaceActivity, "이 지역은 퀴즈가 없습니다.", Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<TestModel>, t: Throwable) {
+                        Toast.makeText(this@InfoOfPlaceActivity, "퀴즈를 받지 못하였습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                })
     }
 
     fun getSiteLocation(siteCode: String) {

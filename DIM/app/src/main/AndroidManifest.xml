@@ -27,7 +27,7 @@
         <activity android:name=".Ui.MainActivity"></activity>
 
         <activity android:name=".Ui.SelectHistoricalSiteActivity"/>
-        <activity android:name=".Ui.OXTestActivity" />
+        <activity android:name=".Ui.OXTestActivity"/>
         <activity android:name=".Ui.DragTestActivity" />
         <activity android:name=".Ui.HistoricalSiteInformActivity"/>
         <activity android:name=".Ui.SplashActivity"

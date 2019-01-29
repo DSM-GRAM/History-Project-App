@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.content.ClipData
+import android.content.Intent
 import android.util.Log
 import android.view.DragEvent
 import android.view.View.OnDragListener
@@ -11,17 +12,54 @@ import kotlinx.android.synthetic.main.activity_drag_test.*
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_DOWN
 import android.widget.TextView
+import android.widget.Toast
+import com.gram.dim.Model.TestModel
 import com.gram.dim.R
-import com.gram.dim.Util.TestModel
+import com.gram.dim.Util.QuizData
 
 
 class DragTestActivity: AppCompatActivity(){
-    lateinit var testModel: TestModel
+
+    val quizData = QuizData
+
+    var answer = ""
+
+    var answerOfnumber = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_test)
 
-        testModel = TestModel
+        quiz_drag_question_tv.text = quizData.questionMultiple.get(0)
+        quizData.questionMultiple.removeAt(0)
+
+        answer = quizData.answerMultiple.get(0)
+        quizData.answerMultiple.removeAt(0)
+
+        answerOfnumber = quizData.answerOfnumber.get(0)
+        quizData.answerOfnumber.removeAt(0)
+        when(answerOfnumber){
+            1 -> {
+                second_space.visibility = View.GONE
+                third_space.visibility = View.GONE
+            }
+            2 -> {
+                third_space.visibility = View.GONE
+            }
+        }
+
+        first_word.text = quizData.word1.get(0)
+        quizData.word1.removeAt(0)
+        second_word.text = quizData.word2.get(0)
+        quizData.word2.removeAt(0)
+        third_word.text = quizData.word3.get(0)
+        quizData.word3.removeAt(0)
+        fourth_word.text = quizData.word4.get(0)
+        quizData.word4.removeAt(0)
+        fifth_word.text = quizData.word5.get(0)
+        quizData.word5.removeAt(0)
+        sixth_word.text = quizData.word6.get(0)
+        quizData.word6.removeAt(0)
 
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)
@@ -29,19 +67,15 @@ class DragTestActivity: AppCompatActivity(){
         first_space.setOnDragListener(DragListener())
         second_space.setOnDragListener(DragListener())
         third_space.setOnDragListener(DragListener())
-        layout.setOnDragListener(DragListener())
+        quiz_drag_lay.setOnDragListener(DragListener())
 
-        arrow_back.setOnClickListener { v ->
-            finish()
-        }
-
+        quiz_drag_arrow_back_imgv.setOnClickListener { finish() }
 
     }
 
     fun WordDrag(v: View){
         v.setOnTouchListener(OnTouchListener())
     }
-
 
 
     inner class OnTouchListener: View.OnTouchListener{
@@ -76,10 +110,8 @@ class DragTestActivity: AppCompatActivity(){
                         val containView = v as TextView
                         containView.setText(dragedView.text)
                         view.visibility = View.VISIBLE
+                        checkAnswer()
 
-                    } else if(v == layout) {
-                        val view: View = event.localState as View
-                        view.visibility = View.VISIBLE
                     } else {
                         val view: View = event.localState as View
                         view.visibility = View.VISIBLE
@@ -89,6 +121,45 @@ class DragTestActivity: AppCompatActivity(){
                     Log.d("DragClickListener", "ACTION_DRAG_ENDED")
             }
             return true
+        }
+
+        fun checkAnswer(){
+            when(answerOfnumber){
+                1 -> {
+                    if (first_space.text != "(1)"){
+                        if(first_space.text == answer){
+                            Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
+                            checkQuestion()
+                        } else {
+                            Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                2 -> {
+                    if (first_space.text != "(1)" && second_space.text != "(2)"){
+                        Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
+                        checkQuestion()
+                    } else {
+                        Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                3 -> {
+                    if (first_space.text != "(1)" && second_space.text != "(2)" && third_space.text != "(3)"){
+                        Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
+                        checkQuestion()
+                    } else {
+                        Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
+        fun checkQuestion(){
+            if (quizData.questionMultiple.isNotEmpty()){
+                var intent = Intent(this@DragTestActivity, DragTestActivity::class.java)
+                startActivity(intent)
+            }
+            finish()
         }
     }
 }

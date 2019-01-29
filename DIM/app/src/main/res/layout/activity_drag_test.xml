@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/layout"
+    android:id="@+id/quiz_drag_lay"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,12 +15,13 @@
         android:background="@color/colorbrown"
         android:minHeight="?attr/actionBarSize">
         <ImageView
-            android:id="@+id/arrow_back"
+            android:id="@+id/quiz_drag_arrow_back_imgv"
             android:layout_marginStart="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_arrow_back_white_24dp" />
         <TextView
+            android:id="@+id/quiz_drag_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test"
@@ -44,6 +45,7 @@
             android:layout_weight="1"
             android:padding="10dp">
             <TextView
+                android:id="@+id/quiz_drag_question_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -152,14 +154,14 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/first_space"
-                android:layout_width="85dp"
-                android:layout_height="35dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/round_white_button"
-                android:gravity="center"
-                android:text="(1)"/>
+                <TextView
+                    android:id="@+id/first_space"
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/round_white_button"
+                    android:gravity="center"
+                    android:text="(1)"/>
 
                 <TextView
                     android:id="@+id/second_space"
