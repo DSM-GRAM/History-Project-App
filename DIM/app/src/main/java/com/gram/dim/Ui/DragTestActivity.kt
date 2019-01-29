@@ -48,18 +48,13 @@ class DragTestActivity: AppCompatActivity(){
             }
         }
 
-        first_word.text = quizData.word1.get(0)
-        quizData.word1.removeAt(0)
-        second_word.text = quizData.word2.get(0)
-        quizData.word2.removeAt(0)
-        third_word.text = quizData.word3.get(0)
-        quizData.word3.removeAt(0)
-        fourth_word.text = quizData.word4.get(0)
-        quizData.word4.removeAt(0)
-        fifth_word.text = quizData.word5.get(0)
-        quizData.word5.removeAt(0)
-        sixth_word.text = quizData.word6.get(0)
-        quizData.word6.removeAt(0)
+        first_word.text = quizData.wordList.get(0).word1
+        second_word.text = quizData.wordList.get(0).word2
+        third_word.text = quizData.wordList.get(0).word3
+        fourth_word.text = quizData.wordList.get(0).word4
+        fifth_word.text = quizData.wordList.get(0).word5
+        sixth_word.text = quizData.wordList.get(0).word6
+        quizData.wordList.removeAt(0)
 
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)

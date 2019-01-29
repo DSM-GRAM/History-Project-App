@@ -18,21 +18,20 @@ class TestModel{
     @SerializedName("answerOfnumber")
     var answerOfnumber: ArrayList<Int> = ArrayList()
 
-    @SerializedName("word1")
-    var word1: ArrayList<String> = ArrayList()
+    @SerializedName("wordList")
+    var wordList: ArrayList<String> = ArrayList()
 
-    @SerializedName("word2")
-    var word2: ArrayList<String> = ArrayList()
+    class WordListModel{
+        var word1: String = ""
 
-    @SerializedName("word3")
-    var word3: ArrayList<String> = ArrayList()
+        var word2: String = ""
 
-    @SerializedName("word4")
-    var word4: ArrayList<String> = ArrayList()
+        var word3: String = ""
 
-    @SerializedName("word5")
-    var word5: ArrayList<String> = ArrayList()
+        var word4: String = ""
 
-    @SerializedName("word6")
-    var word6: ArrayList<String> = ArrayList()
+        var word5: String = ""
+
+        var word6: String = ""
+    }
 }

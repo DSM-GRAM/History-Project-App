@@ -71,12 +71,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                 quizData.answerMultiple = response.body()!!.answerMultiple
                                 quizData.questionOX = response.body()!!.questionOX
                                 quizData.answerOX = response.body()!!.answerOX
-                                quizData.word1 = response.body()!!.word1
-                                quizData.word2 = response.body()!!.word2
-                                quizData.word3 = response.body()!!.word3
-                                quizData.word4 = response.body()!!.word4
-                                quizData.word5 = response.body()!!.word5
-                                quizData.word6 = response.body()!!.word6
+                                quizData.wordList = response.body()!!.wordList
                                 val intent = Intent(this@InfoOfPlaceActivity, OXTestActivity::class.java)
                                 startActivity(intent)
                             } else {
@@ -84,12 +79,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                     quizData.questionMultiple = response.body()!!.questionMultiple
                                     quizData.answerMultiple = response.body()!!.answerMultiple
                                     quizData.answerOfnumber = response.body()!!.answerOfnumber
-                                    quizData.word1 = response.body()!!.word1
-                                    quizData.word2 = response.body()!!.word2
-                                    quizData.word3 = response.body()!!.word3
-                                    quizData.word4 = response.body()!!.word4
-                                    quizData.word5 = response.body()!!.word5
-                                    quizData.word6 = response.body()!!.word6
+                                    quizData.wordList = response.body()!!.wordList
                                     val intent = Intent(this@InfoOfPlaceActivity, DragTestActivity::class.java)
                                     startActivity(intent)
                                 } else {
