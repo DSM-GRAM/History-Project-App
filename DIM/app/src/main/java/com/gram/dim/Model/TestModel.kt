@@ -19,7 +19,7 @@ class TestModel{
     var answerOfnumber: ArrayList<Int> = ArrayList()
 
     @SerializedName("wordList")
-    var wordList: ArrayList<String> = ArrayList()
+    var wordList: ArrayList<WordListModel> = ArrayList()
 
     class WordListModel{
         var word1: String = ""
