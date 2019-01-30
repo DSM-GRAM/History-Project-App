@@ -31,7 +31,6 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_of_place)
 
-        val intent = intent
         location = when(intent.getStringExtra("location")){
             "bla" -> "러시아, 블라디보스톡"
             "usu" -> "러시아, 우수리스크"
