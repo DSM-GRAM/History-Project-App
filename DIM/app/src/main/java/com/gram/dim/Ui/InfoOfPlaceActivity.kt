@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -24,6 +25,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
     var location = ""
     var siteCode = ""
     var siteName = ""
+    var imagePath = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,9 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         }
         siteCode = intent.getStringExtra("siteCode")
         siteName = intent.getStringExtra("siteName")
+        imagePath = intent.getStringExtra("imagePath")
+
+        Glide.with(this@InfoOfPlaceActivity).load(imagePath).into(info_of_place_back_img)
 
         // VR 이미지 좀 주세요 ㅠㅠㅠㅠ
 //        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
@@ -47,7 +52,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
         info_of_place_panorama_btn.setOnClickListener(this)
         info_of_place_map_btn.setOnClickListener(this)
 
-        info_of_place_go_test_fab.setOnClickListener { getQuiz(location)}
+        info_of_place_go_test_fab.setOnClickListener { getQuiz(siteCode)}
 
         info_of_place_back_btn.setOnClickListener { finish() }
 
@@ -74,6 +79,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                 quizData.wordList = response.body()!!.wordList
                                 val intent = Intent(this@InfoOfPlaceActivity, OXTestActivity::class.java)
                                 startActivity(intent)
+                                Log.d("QUIZ","success")
                             } else {
                                 if (response.body()!!.questionMultiple.isNotEmpty()){
                                     quizData.questionMultiple = response.body()!!.questionMultiple
@@ -82,6 +88,8 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                     quizData.wordList = response.body()!!.wordList
                                     val intent = Intent(this@InfoOfPlaceActivity, DragTestActivity::class.java)
                                     startActivity(intent)
+                                    Log.d("QUIZ","success")
+
                                 } else {
                                     Toast.makeText( this@InfoOfPlaceActivity, "이 지역은 퀴즈가 없습니다.", Toast.LENGTH_LONG).show()
                                 }
