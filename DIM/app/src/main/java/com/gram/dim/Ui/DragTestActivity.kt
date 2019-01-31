@@ -24,8 +24,6 @@ class DragTestActivity: AppCompatActivity(){
 
     var answer = ""
 
-    var answerOfnumber = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_test)
@@ -36,24 +34,14 @@ class DragTestActivity: AppCompatActivity(){
         answer = quizData.answerMultiple.get(0)
         quizData.answerMultiple.removeAt(0)
 
-        answerOfnumber = quizData.answerOfnumber.get(0)
-        quizData.answerOfnumber.removeAt(0)
-        when(answerOfnumber){
-            1 -> {
-                second_space.visibility = View.GONE
-                third_space.visibility = View.GONE
-            }
-            2 -> {
-                third_space.visibility = View.GONE
-            }
-        }
+        if(quizData.wordOfnumber.get(0) == 3)
+            fourth_word.visibility = View.GONE
+        quizData.wordOfnumber.removeAt(0)
 
         first_word.text = quizData.wordList.get(0).word1
         second_word.text = quizData.wordList.get(0).word2
         third_word.text = quizData.wordList.get(0).word3
         fourth_word.text = quizData.wordList.get(0).word4
-        fifth_word.text = quizData.wordList.get(0).word5
-        sixth_word.text = quizData.wordList.get(0).word6
         quizData.wordList.removeAt(0)
 
         setSupportActionBar(toolbar_dragtest)
@@ -68,9 +56,7 @@ class DragTestActivity: AppCompatActivity(){
 
     }
 
-    fun WordDrag(v: View){
-        v.setOnTouchListener(OnTouchListener())
-    }
+    fun WordDrag(v: View) = v.setOnTouchListener(OnTouchListener())
 
 
     inner class OnTouchListener: View.OnTouchListener{
@@ -97,7 +83,7 @@ class DragTestActivity: AppCompatActivity(){
                 DragEvent.ACTION_DRAG_EXITED  ->
                     Log.d("DragClickListener", "ACTION_DRAG_EXITED")
                 DragEvent.ACTION_DROP -> {
-                    if (v == first_space || v == second_space || v == third_space) {
+                    if (v == first_space) {
                         val view: View = event.localState as View
                         view.visibility = View.INVISIBLE
 
@@ -119,33 +105,11 @@ class DragTestActivity: AppCompatActivity(){
         }
 
         fun checkAnswer(){
-            when(answerOfnumber){
-                1 -> {
-                    if (first_space.text != "(1)"){
-                        if(first_space.text == answer){
-                            Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
-                            checkQuestion()
-                        } else {
-                            Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-                2 -> {
-                    if (first_space.text != "(1)" && second_space.text != "(2)"){
-                        Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
-                        checkQuestion()
-                    } else {
-                        Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                3 -> {
-                    if (first_space.text != "(1)" && second_space.text != "(2)" && third_space.text != "(3)"){
-                        Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
-                        checkQuestion()
-                    } else {
-                        Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            if(first_space.text == answer){
+                Toast.makeText(this@DragTestActivity, "정답입니다!", Toast.LENGTH_SHORT).show()
+                checkQuestion()
+            } else {
+                Toast.makeText(this@DragTestActivity, "오답입니다!", Toast.LENGTH_SHORT).show()
             }
         }
 

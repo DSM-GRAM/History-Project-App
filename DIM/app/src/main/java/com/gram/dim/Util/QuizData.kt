@@ -7,6 +7,6 @@ object QuizData{
     var questionMultiple: ArrayList<String> = ArrayList()
     var answerOX: ArrayList<String> = ArrayList()
     var answerMultiple: ArrayList<String> = ArrayList()
-    var answerOfnumber: ArrayList<Int> = ArrayList()
+    var wordOfnumber: ArrayList<Int> = ArrayList()
     var wordList: ArrayList<TestModel.WordListModel> = ArrayList()
 }

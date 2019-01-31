@@ -71,6 +71,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                 quizData.answerMultiple = response.body()!!.answerMultiple
                                 quizData.questionOX = response.body()!!.questionOX
                                 quizData.answerOX = response.body()!!.answerOX
+                                quizData.wordOfnumber = response.body()!!.wordOfnumber
                                 quizData.wordList = response.body()!!.wordList
                                 val intent = Intent(this@InfoOfPlaceActivity, OXTestActivity::class.java)
                                 startActivity(intent)
@@ -78,7 +79,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                 if (response.body()!!.questionMultiple.isNotEmpty()){
                                     quizData.questionMultiple = response.body()!!.questionMultiple
                                     quizData.answerMultiple = response.body()!!.answerMultiple
-                                    quizData.answerOfnumber = response.body()!!.answerOfnumber
+                                    quizData.wordOfnumber = response.body()!!.wordOfnumber
                                     quizData.wordList = response.body()!!.wordList
                                     val intent = Intent(this@InfoOfPlaceActivity, DragTestActivity::class.java)
                                     startActivity(intent)

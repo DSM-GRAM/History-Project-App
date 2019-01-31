@@ -16,7 +16,7 @@ class TestModel{
     var answerMultiple: ArrayList<String> = ArrayList()
 
     @SerializedName("answerOfnumber")
-    var answerOfnumber: ArrayList<Int> = ArrayList()
+    var wordOfnumber: ArrayList<Int> = ArrayList()
 
     @SerializedName("wordList")
     var wordList: ArrayList<WordListModel> = ArrayList()
@@ -29,9 +29,5 @@ class TestModel{
         var word3: String = ""
 
         var word4: String = ""
-
-        var word5: String = ""
-
-        var word6: String = ""
     }
 }

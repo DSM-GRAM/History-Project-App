@@ -115,28 +115,6 @@
                     android:text="4"
                     android:textColor="@color/colorblack"
                     android:onClick="WordDrag"/>
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/fifth_word"
-                    android:background="@drawable/round_gray_button"
-                    android:gravity="center"
-                    android:layout_width="85dp"
-                    android:layout_height="35dp"
-                    android:text="5"
-                    android:textColor="@color/colorblack"
-                    android:onClick="WordDrag"/>
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/sixth_word"
-                    android:background="@drawable/round_gray_button"
-                    android:gravity="center"
-                    android:layout_width="85dp"
-                    android:layout_height="35dp"
-                    android:text="6"
-                    android:textColor="@color/colorblack"
-                    android:onClick="WordDrag"/>
             </LinearLayout>
 
 
@@ -162,24 +140,6 @@
                     android:background="@drawable/round_white_button"
                     android:gravity="center"
                     android:text="(1)"/>
-
-                <TextView
-                    android:id="@+id/second_space"
-                    android:layout_width="85dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/round_white_button"
-                    android:gravity="center"
-                    android:text="(2)"/>
-
-                <TextView
-                    android:id="@+id/third_space"
-                    android:layout_width="85dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/round_white_button"
-                    android:gravity="center"
-                    android:text="(3)"/>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 </LinearLayout>
