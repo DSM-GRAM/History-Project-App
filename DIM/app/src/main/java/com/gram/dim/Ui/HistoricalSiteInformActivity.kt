@@ -25,6 +25,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class HistoricalSiteInformActivity : AppCompatActivity() {
+    lateinit var imageurl : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +75,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
             intent.putExtra("location", location)
             intent.putExtra("siteCode", siteCode)
             intent.putExtra("siteName",siteName)
+            intent.putExtra("imagePath",imageurl)
             startActivity(intent)
         }
 
@@ -97,6 +99,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
                     historicalSiteInformExtraImagesAdapter.notifyDataSetChanged()
 
+                    imageurl = response.body()!!.imagePath
                 } else {
                     Log.d("Debug", "ㅠ")
                     Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()

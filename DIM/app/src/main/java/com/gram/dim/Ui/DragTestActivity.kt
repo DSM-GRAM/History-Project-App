@@ -34,22 +34,28 @@ class DragTestActivity: AppCompatActivity(){
         answer = quizData.answerMultiple.get(0)
         quizData.answerMultiple.removeAt(0)
 
-        if(quizData.wordOfnumber.get(0) == 3)
-            fourth_word.visibility = View.GONE
-        quizData.wordOfnumber.removeAt(0)
+        when(quizData.wordOfnumber.get(0)){
+            3 -> {
+                first_word.text = quizData.wordList.get(0).word1
+                second_word.text = quizData.wordList.get(0).word2
+                third_word.text = quizData.wordList.get(0).word3
+                fourth_word.visibility = View.GONE
+            }
 
-        first_word.text = quizData.wordList.get(0).word1
-        second_word.text = quizData.wordList.get(0).word2
-        third_word.text = quizData.wordList.get(0).word3
-        fourth_word.text = quizData.wordList.get(0).word4
+            4 -> {
+                first_word.text = quizData.wordList.get(0).word1
+                second_word.text = quizData.wordList.get(0).word2
+                third_word.text = quizData.wordList.get(0).word3
+                fourth_word.text = quizData.wordList.get(0).word4
+            }
+        }
+        quizData.wordOfnumber.removeAt(0)
         quizData.wordList.removeAt(0)
 
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)
 
         first_space.setOnDragListener(DragListener())
-        second_space.setOnDragListener(DragListener())
-        third_space.setOnDragListener(DragListener())
         quiz_drag_lay.setOnDragListener(DragListener())
 
         quiz_drag_arrow_back_imgv.setOnClickListener { finish() }
