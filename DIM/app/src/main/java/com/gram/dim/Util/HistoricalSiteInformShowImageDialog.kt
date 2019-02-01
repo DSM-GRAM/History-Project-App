@@ -19,7 +19,6 @@ class HistoricalSiteInformShowImageDialog(context: Context, var cancelClickListe
         lpWindow.dimAmount = 0.8f
         window!!.attributes = lpWindow
         setContentView(R.layout.dialog_historical_site_inform_show_image)
-
         if (btn_dialog_historical_site_inform_show_image_cancel != null) {
             btn_dialog_historical_site_inform_show_image_cancel.setOnClickListener(cancelClickLister)
         }

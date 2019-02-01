@@ -2,6 +2,7 @@ package com.gram.dim.Ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Point
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -65,7 +66,6 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
         //오른쪽 화살표 아이콘 못구해서 가로로 뒤집음ㅎㅎ
         btn_historical_site_inform_next.rotationY = 180f
-
         btn_historical_site_inform_home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -91,7 +91,7 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
                     image_historical_site_inform_card.maxHeight = text_historical_site_inform_extra_text.height
                     text_historical_site_inform_extra_text.text = response.body()!!.extraText
                     text_historical_site_inform_explain.text = response.body()!!.explain
-                    Glide.with(this@HistoricalSiteInformActivity).load(response.body()!!.imagePath).into(image_historical_site_inform_toolbar)
+                    Glide.with(this@HistoricalSiteInformActivity).load(response.body()!!.imagePath).apply(RequestOptions().override(400, 300)).into(image_historical_site_inform_toolbar)
                     Glide.with(this@HistoricalSiteInformActivity).load(response.body()!!.imagePath).into(image_historical_site_inform_card)
                     for (i in response.body()!!.extra.indices) {
                         extraImagesItems.add(HistoricalSiteInformExtraImagesItem(response.body()!!.extra[i].extraImagePath, response.body()!!.extra[i].extraName, response.body()!!.extra[i].extraLocation))
@@ -111,8 +111,5 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
             }
         })
-    }
-    fun resize() {
-
     }
 }

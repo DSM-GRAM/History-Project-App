@@ -9,8 +9,8 @@
         android:id="@+id/image_dialog_historical_site_inform_show_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
-        android:contentDescription="이미지" />
+        android:scaleType="centerCrop"
+        android:contentDescription="이미지"/>
     <ImageButton
         android:id="@+id/btn_dialog_historical_site_inform_show_image_cancel"
         android:layout_width="30dp"

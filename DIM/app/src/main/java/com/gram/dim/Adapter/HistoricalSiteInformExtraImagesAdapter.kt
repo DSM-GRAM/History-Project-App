@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.gram.dim.Model.HistoricalSiteInformExtraImagesItem
 import com.gram.dim.R
 
@@ -35,7 +36,7 @@ class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: Ar
             nameText?.text = items.name
             locationText?.text = items.location
             if (image != null) {
-                Glide.with(itemView).load(items.imagePath).into(image)
+                Glide.with(itemView).load(items.imagePath).apply(RequestOptions().override(160, 175)).into(image)
             }
         }
 

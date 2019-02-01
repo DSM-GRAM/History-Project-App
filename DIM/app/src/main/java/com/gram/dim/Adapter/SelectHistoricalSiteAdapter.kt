@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.gram.dim.R
 import com.gram.dim.Model.SelectHistoricalSiteItem
@@ -42,6 +43,7 @@ class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<Sel
             locationText?.text = items.historicalSiteLocation
             if (image != null) {
                 Glide.with(itemView).load(items.historicalSiteImagePath)
+                        .apply(RequestOptions().override(400, 100))
                         .apply(bitmapTransform(BlurTransformation(25, 1)))
                         .into(image)
             }
