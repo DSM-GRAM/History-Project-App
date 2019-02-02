@@ -36,17 +36,17 @@ class DragTestActivity: AppCompatActivity(){
 
         when(quizData.wordOfnumber.get(0)){
             3 -> {
-                first_word.text = quizData.wordList.get(0).word1
-                second_word.text = quizData.wordList.get(0).word2
-                third_word.text = quizData.wordList.get(0).word3
+                first_word.text = quizData.wordList.get(0).get(0)
+                second_word.text = quizData.wordList.get(0).get(1)
+                third_word.text = quizData.wordList.get(0).get(2)
                 fourth_word.visibility = View.GONE
             }
 
             4 -> {
-                first_word.text = quizData.wordList.get(0).word1
-                second_word.text = quizData.wordList.get(0).word2
-                third_word.text = quizData.wordList.get(0).word3
-                fourth_word.text = quizData.wordList.get(0).word4
+                first_word.text = quizData.wordList.get(0).get(0)
+                second_word.text = quizData.wordList.get(0).get(1)
+                third_word.text = quizData.wordList.get(0).get(2)
+                fourth_word.text = quizData.wordList.get(0).get(3)
             }
         }
         quizData.wordOfnumber.removeAt(0)

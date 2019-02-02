@@ -3,31 +3,21 @@ package com.gram.dim.Model
 import com.google.gson.annotations.SerializedName
 
 class TestModel{
-    @SerializedName("questionOX")
+    @SerializedName("oxQuestion")
     var questionOX: ArrayList<String> = ArrayList()
 
-    @SerializedName("questionMultiple")
+    @SerializedName("multipleQuestion")
     var questionMultiple: ArrayList<String> = ArrayList()
 
-    @SerializedName("answerOX")
+    @SerializedName("oxAnswer")
     var answerOX: ArrayList<String> = ArrayList()
 
-    @SerializedName("answerMultiple")
+    @SerializedName("multipleAnswer")
     var answerMultiple: ArrayList<String> = ArrayList()
 
-    @SerializedName("wordOfnumber")
+    @SerializedName("wordOfNumber")
     var wordOfnumber: ArrayList<Int> = ArrayList()
 
     @SerializedName("wordList")
-    var wordList: ArrayList<WordListModel> = ArrayList()
-
-    class WordListModel{
-        var word1: String = ""
-
-        var word2: String = ""
-
-        var word3: String = ""
-
-        var word4: String = ""
-    }
+    var wordList: ArrayList<ArrayList<String>> = ArrayList()
 }

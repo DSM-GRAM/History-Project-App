@@ -8,5 +8,5 @@ object QuizData{
     var answerOX: ArrayList<String> = ArrayList()
     var answerMultiple: ArrayList<String> = ArrayList()
     var wordOfnumber: ArrayList<Int> = ArrayList()
-    var wordList: ArrayList<TestModel.WordListModel> = ArrayList()
+    var wordList: ArrayList<ArrayList<String>> = ArrayList()
 }
