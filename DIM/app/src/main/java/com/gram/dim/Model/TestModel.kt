@@ -15,7 +15,7 @@ class TestModel{
     @SerializedName("answerMultiple")
     var answerMultiple: ArrayList<String> = ArrayList()
 
-    @SerializedName("answerOfnumber")
+    @SerializedName("wordOfnumber")
     var wordOfnumber: ArrayList<Int> = ArrayList()
 
     @SerializedName("wordList")
