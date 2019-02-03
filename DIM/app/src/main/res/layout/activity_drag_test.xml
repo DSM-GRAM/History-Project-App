@@ -78,31 +78,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:padding="5dp"
                     android:id="@+id/first_word"
                     android:background="@drawable/round_gray_button"
                     android:gravity="center"
-                    android:layout_width="105dp"
-                    android:layout_height="35dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="@color/colorblack"
                     android:onClick="WordDrag"/>
                 <TextView
+                    android:padding="5dp"
                     android:layout_marginStart="10dp"
                     android:id="@+id/second_word"
                     android:background="@drawable/round_gray_button"
                     android:gravity="center"
-                    android:layout_width="105dp"
-                    android:layout_height="35dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:text="2"
                     android:textColor="@color/colorblack"
                     android:onClick="WordDrag"/>
                 <TextView
+                    android:padding="5dp"
                     android:layout_marginStart="10dp"
                     android:id="@+id/third_word"
                     android:background="@drawable/round_gray_button"
                     android:gravity="center"
-                    android:layout_width="105dp"
-                    android:layout_height="35dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:text="3"
                     android:textColor="@color/colorblack"
                     android:onClick="WordDrag"/>
@@ -115,12 +118,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:padding="5dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/fourth_word"
                     android:background="@drawable/round_gray_button"
                     android:gravity="center"
-                    android:layout_width="105dp"
-                    android:layout_height="35dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:text="4"
                     android:textColor="@color/colorblack"
                     android:onClick="WordDrag"/>
@@ -142,9 +146,10 @@
             android:gravity="center">
 
                 <TextView
+                    android:padding="5dp"
                     android:id="@+id/first_space"
-                    android:layout_width="105dp"
-                    android:layout_height="35dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/round_white_button"
                     android:gravity="center"

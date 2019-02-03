@@ -70,7 +70,8 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                 .enqueue(object : Callback<TestModel>{
                     override fun onResponse(call: Call<TestModel>, response: Response<TestModel>) {
                         if(response.code() == 200) {
-                            if (response.body()!!.questionOX.isNotEmpty()){
+                            Log.d("response.body()", "${response.body()}")
+                            if (response.body()!!.questionOX.get(0) != ""){
                                 quizData.questionMultiple = response.body()!!.questionMultiple
                                 quizData.answerMultiple = response.body()!!.answerMultiple
                                 quizData.questionOX = response.body()!!.questionOX
@@ -81,7 +82,7 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
                                 startActivity(intent)
                                 Log.d("QUIZ","success")
                             } else {
-                                if (response.body()!!.questionMultiple.isNotEmpty()){
+                                if (response.body()!!.questionMultiple.get(0) != ""){
                                     quizData.questionMultiple = response.body()!!.questionMultiple
                                     quizData.answerMultiple = response.body()!!.answerMultiple
                                     quizData.wordOfnumber = response.body()!!.wordOfnumber
