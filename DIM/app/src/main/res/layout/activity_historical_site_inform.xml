@@ -159,10 +159,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#70000000"/>
+                    android:background="#70000000" />
 
                 <TextView
                     android:id="@+id/text_historical_site_inform_extra_text"
@@ -204,6 +205,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/colorPrimary"
             android:src="@drawable/ic_home_white_placeinfo"
+            app:borderWidth="0dp"
             app:fabCustomSize="46dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -218,6 +220,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@android:color/white"
             android:src="@drawable/ic_arrow_left_black_placeinfo"
+            app:borderWidth="0dp"
             app:fabCustomSize="46dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/btn_historical_site_inform_home"
