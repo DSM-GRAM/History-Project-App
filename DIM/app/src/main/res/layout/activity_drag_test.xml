@@ -58,8 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="(1)을 짜는 것은 너무 (2)요. 으으으아아아아아아"
+                android:text="문제"
                 android:textColor="@color/colorblack"
                 android:textSize="12dp"/>
         </android.support.constraint.ConstraintLayout>
