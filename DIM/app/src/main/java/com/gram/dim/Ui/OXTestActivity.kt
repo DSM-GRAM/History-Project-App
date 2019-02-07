@@ -78,7 +78,7 @@ class OXTestActivity : AppCompatActivity(){
             quiz_ox_lay.setBackgroundColor(Color.parseColor("#ff5050"))
             quiz_ox_arrow_back_imgv.background = getDrawable(R.mipmap.white_arrow_forward_24_px)
             quiz_ox_title_tv.setTextColor(getColor(R.color.colorwhite))
-            Toast.makeText(this, "오답입니다...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "오답입니다!", Toast.LENGTH_SHORT).show()
         }
     }
 }

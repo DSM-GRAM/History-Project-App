@@ -66,13 +66,11 @@ class SelectHistoricalSiteActivity : AppCompatActivity() {
                     }
                     selectHistoricalSiteAdapter.notifyDataSetChanged()
                 } else {
-                    Log.d("Debug","ㅠ")
                     Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ArrayList<SelectHistoricalSiteModel>>, t: Throwable) {
-                Log.d("Debug","ㅜㅜㅜㅜㅜ")
                 Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
             }
         })

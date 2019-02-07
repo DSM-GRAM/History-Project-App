@@ -9,7 +9,10 @@
         android:id="@+id/card_select_historical_site"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:cardCornerRadius="6dp">
+        app:cardCornerRadius="6dp"
+        app:cardBackgroundColor="@color/colorblack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,12 +40,13 @@
                 android:id="@+id/text_select_historical_site_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.6"
                 android:text="location"
                 android:textColor="@android:color/white"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_select_historical_site_name"
                 app:layout_constraintVertical_chainStyle="packed" />

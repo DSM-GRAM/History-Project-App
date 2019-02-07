@@ -101,13 +101,11 @@ class HistoricalSiteInformActivity : AppCompatActivity() {
 
                     imageurl = response.body()!!.imagePath
                 } else {
-                    Log.d("Debug", "ㅠ")
                     Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<HistoricalSiteInformModel>, t: Throwable) {
-                Log.d("Debug", "ㅜㅜㅜㅜㅜ")
                 Toast.makeText(applicationContext, "오류", Toast.LENGTH_SHORT).show()
             }
         })

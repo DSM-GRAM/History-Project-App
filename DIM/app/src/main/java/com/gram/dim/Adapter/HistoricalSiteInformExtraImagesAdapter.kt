@@ -20,7 +20,7 @@ class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: Ar
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(items[position], context)
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
@@ -28,11 +28,11 @@ class HistoricalSiteInformExtraImagesAdapter(val context: Context, val items: Ar
     }
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        val nameText = itemView?.findViewById<TextView>(R.id.text_historical_site_inform_extra_images_name)
-        val locationText = itemView?.findViewById<TextView>(R.id.text_historical_site_inform_extra_images_location)
-        val image = itemView?.findViewById<ImageView>(R.id.image_historical_site_inform_extra_images)
+        private val nameText = itemView?.findViewById<TextView>(R.id.text_historical_site_inform_extra_images_name)
+        private val locationText = itemView?.findViewById<TextView>(R.id.text_historical_site_inform_extra_images_location)
+        private val image = itemView?.findViewById<ImageView>(R.id.image_historical_site_inform_extra_images)
 
-        fun bind (items: HistoricalSiteInformExtraImagesItem, context: Context) {
+        fun bind (items: HistoricalSiteInformExtraImagesItem) {
             nameText?.text = items.name
             locationText?.text = items.location
             if (image != null) {
