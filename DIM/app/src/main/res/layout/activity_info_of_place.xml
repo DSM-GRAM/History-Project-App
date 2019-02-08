@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Ui.InfoOfPlaceActivity">
 
     <ImageView
         android:id="@+id/info_of_place_back_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY" />
 
     <View
         android:layout_width="match_parent"
@@ -55,26 +55,26 @@
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/info_of_place_panorama_img_expand"
-            android:background="@drawable/back_expandview_round_shape_placeinfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/back_expandview_round_shape_placeinfo"
             android:src="@drawable/example" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-            android:textColor="@color/colorwhite"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="VR 이미지가 없어요 ㅠㅠ"
-            android:textAlignment="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VR 이미지가 없습니다."
+                android:textAlignment="center"
+                android:textColor="@color/colorwhite"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -105,9 +105,9 @@
 
         <fragment
             android:id="@+id/info_of_place_map_map_expand"
+            class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            class="com.google.android.gms.maps.SupportMapFragment"/>
+            android:layout_height="match_parent" />
 
     </net.cachapa.expandablelayout.ExpandableLayout>
 
@@ -119,6 +119,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_home_white_placeinfo"
+        app:borderWidth="0dp"
         app:fabCustomSize="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +132,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/white"
-        android:src="@drawable/ic_pencil_black_placeinfo"
+        android:src="@drawable/ic_test_placeinfo"
+        app:borderWidth="0dp"
         app:fabCustomSize="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/info_of_place_home_fab" />
@@ -142,8 +144,10 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@android:color/white"
         android:backgroundTint="@android:color/white"
         android:src="@drawable/ic_arrow_left_black_placeinfo"
+        app:borderWidth="0dp"
         app:fabCustomSize="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/info_of_place_home_fab"

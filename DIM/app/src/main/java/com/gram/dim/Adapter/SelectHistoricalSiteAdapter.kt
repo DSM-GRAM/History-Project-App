@@ -26,7 +26,7 @@ class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<Sel
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(items[position], context)
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
@@ -38,13 +38,13 @@ class SelectHistoricalSiteAdapter(val context: Context, val items: ArrayList<Sel
         val locationText = itemView?.findViewById<TextView>(R.id.text_select_historical_site_location)
         val image = itemView?.findViewById<ImageView>(R.id.image_select_historical_site)
 
-        fun bind(items: SelectHistoricalSiteItem, context: Context) {
+        fun bind(items: SelectHistoricalSiteItem) {
             nameText?.text = items.historicalSiteName
             locationText?.text = items.historicalSiteLocation
             if (image != null) {
                 Glide.with(itemView).load(items.historicalSiteImagePath)
-                        .apply(RequestOptions().override(400, 100))
-                        .apply(bitmapTransform(BlurTransformation(25, 1)))
+                        .apply(RequestOptions().override(200, 50))
+                        .apply(bitmapTransform(BlurTransformation(8, 1)))
                         .into(image)
             }
         }

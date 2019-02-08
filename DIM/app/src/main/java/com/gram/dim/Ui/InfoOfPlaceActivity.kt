@@ -42,7 +42,6 @@ class InfoOfPlaceActivity : AppCompatActivity(),View.OnClickListener,OnMapReadyC
 
         Glide.with(this@InfoOfPlaceActivity).load(imagePath).into(info_of_place_back_img)
 
-        // VR 이미지 좀 주세요 ㅠㅠㅠㅠ
 //        info_of_place_panorama_img_expand.loadImageFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.panorama_example),null)
         (supportFragmentManager.findFragmentById(R.id.info_of_place_map_map_expand) as SupportMapFragment).getMapAsync(this)
 

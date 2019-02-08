@@ -10,7 +10,9 @@
         android:id="@+id/toolbar_select_historical_site"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorbrown"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,7 +24,8 @@
                 android:layout_height="24dp"
                 android:background="@drawable/ic_back_toolbar"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/text_select_historical_site_toolbar_name"
