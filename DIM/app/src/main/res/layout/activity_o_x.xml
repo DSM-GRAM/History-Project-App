@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="I'm good"
                 android:textColor="@color/colorblack"
-                android:textSize="12dp"/>
+                android:textSize="16dp"/>
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
