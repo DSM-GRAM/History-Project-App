@@ -1,9 +1,6 @@
 package com.gram.dim.Connector
 
-import com.gram.dim.Model.InfoOfPlaceModel
-import com.gram.dim.Model.HistoricalSiteInformModel
-import com.gram.dim.Model.SelectHistoricalSiteModel
-import com.gram.dim.Model.TestModel
+import com.gram.dim.Model.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -25,4 +22,9 @@ interface Api {
     @GET("quiz/{area}")
     @Headers("Content-Type: application/json")
     fun getQuiz(@Path("area") area: String): Call<TestModel>
+
+    @GET("vr/image/{site_code}")
+    @Headers("Content-Type: application/json")
+    fun getVRImage(@Path("site_code") histroy_site_code : String) : Call<VRImageModel>
+
 }

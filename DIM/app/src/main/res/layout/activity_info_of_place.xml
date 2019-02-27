@@ -65,6 +65,8 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:visibility="invisible"
+                android:id="@+id/info_of_place_vrimg_flag_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VR 이미지가 없어요 ㅠㅠ"
