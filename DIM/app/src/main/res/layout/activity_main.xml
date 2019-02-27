@@ -18,9 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="독립운동 알아보기"
-            android:textSize="22dp"
-            android:textColor="@color/colorwhite"
-            android:textStyle="bold"/>
+            android:textSize="20dp"
+            android:textColor="@color/colorwhite"/>
     </android.support.v7.widget.Toolbar>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

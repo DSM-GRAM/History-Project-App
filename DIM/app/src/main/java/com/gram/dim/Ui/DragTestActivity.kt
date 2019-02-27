@@ -55,14 +55,17 @@ class DragTestActivity: AppCompatActivity(){
         setSupportActionBar(toolbar_dragtest)
         setSupportActionBar(toolbar_dragtest_space)
 
+        first_word.setOnTouchListener(OnTouchListener())
+        second_word.setOnTouchListener(OnTouchListener())
+        third_word.setOnTouchListener(OnTouchListener())
+        fourth_word.setOnTouchListener(OnTouchListener())
+
         first_space.setOnDragListener(DragListener())
         quiz_drag_lay.setOnDragListener(DragListener())
 
         quiz_drag_arrow_back_imgv.setOnClickListener { finish() }
 
     }
-
-    fun WordDrag(v: View) = v.setOnTouchListener(OnTouchListener())
 
 
     inner class OnTouchListener: View.OnTouchListener{
